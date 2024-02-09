@@ -1,0 +1,29 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo **Starting build
+    runtime-versions:
+      nodejs: 20.11
+
+  pre_build:
+    commands:
+      - echo **Installing source npm
+      - npm install
+      - npm install -g @angular/cli
+      - echo **`node -v`
+  build:
+    commands:
+      - echo **Build started
+      - ng build --configuration production
+  post_build:
+    commands:
+      - echo **build complete
+      - aws s3 rm s3://forkids12345/ --recursive
+      - aws s3 cp dist/demo-app/ s3://forkids12345/ --recursive
+      - echo **upload complete
+      - aws cloudfront create-invalidation --distribution-id E2VE9WI7ML0N38 --paths "/*"
+      - echo **Invalidation Complete
+artifacts:
+    files:
+      - '**/*'
