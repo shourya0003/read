@@ -4,7 +4,7 @@ phases:
     commands:
       - echo **Starting build
     runtime-versions:
-      nodejs: 20.11
+      nodejs: 20
 
   pre_build:
     commands:
