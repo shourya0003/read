@@ -20,7 +20,7 @@ phases:
     commands:
       - echo **build complete
       - aws s3 rm s3://forkids12345/ --recursive
-      - aws s3 cp dist/demo-app/ s3://forkids12345/ --recursive
+      - aws s3 cp dist/demo-app/browser s3://forkids12345/ --recursive
       - echo **upload complete
       - aws cloudfront create-invalidation --distribution-id E2VE9WI7ML0N38 --paths "/*"
       - echo **Invalidation Complete
