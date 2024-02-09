@@ -33,7 +33,7 @@ export class ListnerComponent {
 
     this.recognition.continuous = true;
     this.recognition.lang = 'en-US';
-    this.recognition.interimResults = false;
+    this.recognition.interimResults = true;
 
     this.recognition.onstart = () => {
       console.log('Speech recognition started');
