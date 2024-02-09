@@ -22,6 +22,7 @@ export class GroupOfWordsComponent {
   });
   private audioContext: AudioContext;
   private source: AudioBufferSourceNode;
+  private audio: HTMLAudioElement;
   words:string[] = "happy puppy max loves playing with butterflies in the sunshine".split(" ");
   buffermap:any = {};
 
@@ -39,8 +40,10 @@ export class GroupOfWordsComponent {
 
   //
 
-  constructor(private readonly changeDetector: ChangeDetectorRef,){
-
+  constructor(private readonly changeDetector: ChangeDetectorRef){
+    this.audio = new Audio();
+    this.audio.src = '../assets/correct-answer.wav';
+    this.audio.preload = 'auto';
     this.audioContext = new AudioContext();
     this.source = this.audioContext.createBufferSource();
     // this.words.forEach(word => this.run(word)) //need this to create audio buffers
@@ -93,6 +96,7 @@ export class GroupOfWordsComponent {
     if(this.containsIgnoreCase(this.words,word)){
       // this.selectedWord = word;
       this.spokenWords.push(word);
+      this.audio.play();
     }
     console.log(this.spokenWords)
     this.changeDetector.detectChanges();
