@@ -41,7 +41,7 @@ export class GroupOfWordsComponent {
     this.audio.preload = 'auto';
     this.audioContext = new AudioContext();
     this.source = this.audioContext.createBufferSource();
-    // this.words.forEach(word => this.run(word)) //need this to create audio buffers
+    // this.dataObj?.words.forEach(word => this.run(word)) //need this to create audio buffers
     // if ('speechSynthesis' in window) {
     //   const synth = window.speechSynthesis;
     //   const utterance = new SpeechSynthesisUtterance("hi how are you doaing?");
@@ -88,7 +88,7 @@ export class GroupOfWordsComponent {
   spoke(word:string){
     console.log(word);
     word = word.trim().toLowerCase();
-    if(this.containsIgnoreCase(this.words,word)){
+    if(this.containsIgnoreCase(this.dataObj?.words,word)){
       // this.selectedWord = word;
       this.spokenWords.push(word);
       this.audio.play();
