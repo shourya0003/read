@@ -3,7 +3,7 @@
     <!-- <app-card></app-card> -->
     <div class="card ">
       <img class="card-img-top" [src]="dataObj?.image" >
-      <div class="card-body">
+      <div class="card-body text-center">
         <h1 class="m-2"><span class=" rounded-3" (click)="speak(word)" *ngFor="let word of dataObj?.words"
           [ngClass]='{"text-success bg-success-subtle border border-success-subtle":isSpoken(word),"text-white bg-primary-subtle border border-primary-subtle":selectedWord === word}'>{{word + " "}}</span></h1>
 

@@ -30,44 +30,44 @@ export class ListnerComponent {
     // this.recognizer = speechCommands.create('BROWSER_FFT');
   }
 
-  // ngOnInit() {
+  ngOnInit() {
 
 
 
 
-  //   this.recognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+    this.recognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
 
-  //   if (!this.recognition) {
-  //     console.error('SpeechRecognition API not supported in this browser');
-  //     return;
-  //   }
+    if (!this.recognition) {
+      console.error('SpeechRecognition API not supported in this browser');
+      return;
+    }
 
-  //   this.recognition = new this.recognition();
+    this.recognition = new this.recognition();
 
-  //   this.recognition.continuous = true;
-  //   this.recognition.lang = 'en-US';
-  //   this.recognition.interimResults = false;
+    this.recognition.continuous = true;
+    this.recognition.lang = 'en-US';
+    this.recognition.interimResults = false;
 
-  //   this.recognition.onstart = () => {
-  //     console.log('Speech recognition started');
-  //   };
+    this.recognition.onstart = () => {
+      console.log('Speech recognition started');
+    };
 
-  //   this.recognition.onresult = (event:any) => {
-  //     console.log("result here",event)
-  //     const transcript = event.results[event.results.length - 1][0].transcript;
-  //     this.transcription = transcript;
-  //     console.log(this.transcription);
-  //     this.recognizedText.emit(this.transcription);
-  //     // this.listnerSubject.next(this.transcription);
-  //   };
+    this.recognition.onresult = (event:any) => {
+      console.log("result here",event)
+      const transcript = event.results[event.results.length - 1][0].transcript;
+      this.transcription = transcript;
+      console.log(this.transcription);
+      this.recognizedText.emit(this.transcription);
+      // this.listnerSubject.next(this.transcription);
+    };
 
-  //   this.recognition.onend = () => {
-  //     console.log('Speech recognition ended');
-  //   };
-  //   this.recognition.onspeechend = () => {
-  //     this.recognition.stop();
-  //   };
-  // }
+    this.recognition.onend = () => {
+      console.log('Speech recognition ended');
+    };
+    this.recognition.onspeechend = () => {
+      this.recognition.stop();
+    };
+  }
 
 
 
