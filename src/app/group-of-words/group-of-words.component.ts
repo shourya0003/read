@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 // const fs = require("fs");
 // const path = require("path");
 import * as OpenAI from 'openai';
 import { ListnerComponent } from '../listner/listner.component';
+import { image } from '@tensorflow/tfjs';
 
 
 @Component({
@@ -25,20 +26,14 @@ export class GroupOfWordsComponent {
   private audio: HTMLAudioElement;
   words:string[] = "happy puppy max loves playing with butterflies in the sunshine".split(" ");
   buffermap:any = {};
-
-  //
-
-
-
   selectedWord: any;
   spokenWords:any[] = [];
 
+  @Input()
+  dataObj:any;
 
 
 
-
-
-  //
 
   constructor(private readonly changeDetector: ChangeDetectorRef){
     this.audio = new Audio();

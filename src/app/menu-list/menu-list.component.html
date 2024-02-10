@@ -1,0 +1,16 @@
+<div class="contianer-fluid d-flex justify-content-center mt-5">
+  <div class="col-md-4">
+    <!-- <app-card></app-card> -->
+    <div class="card text-white mb-3 w-100" *ngFor="let menuItem of menuListData" [routerLink]="menuItem.routerlink">
+      <div class="card-header h6 text-white-50">{{menuItem.level}}</div>
+      <div class="card-body d-flex justify-content-between align-items-center p-2">
+        <!-- <h5 class="card-title">Primary card title</h5> -->
+        <div>
+          <img class="card-img-top icon_class" [src]="menuItem.icon_url" width="75px" height="50px" >
+        </div>
+        <p class="card-text mx-1 h3 my-0">{{menuItem?.menu_name}}</p>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import * as OpenAI from 'openai';
 import { CardComponent } from './card/card.component';
 import { ListnerComponent } from './listner/listner.component';
 import { GroupOfWordsComponent } from './group-of-words/group-of-words.component';
-import { WordComponent } from './group-of-words copy/group-of-words.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
 // const OpenAI = require("openai");
 
 
@@ -15,7 +15,7 @@ import { WordComponent } from './group-of-words copy/group-of-words.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,CardComponent,GroupOfWordsComponent,WordComponent],
+  imports: [RouterOutlet,CommonModule,CardComponent,GroupOfWordsComponent,MenuListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
